@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="36f0420b-20f9-4a89-86a7-882f9cd00cc6" name="@mansoor 2021-05-19 15:58:54" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2021-05-19T15:58:54.8610934-04:00" queuing="2021-05-19T15:58:54.8610935-04:00" start="2021-05-19T15:58:53.9830109-04:00" finish="2021-05-19T15:58:54.8672485-04:00" />
+  <TestSettings name="default" id="806bf74e-df54-4716-8982-5598542c9487">
+    <Deployment runDeploymentRoot="_mansoor_2021-05-19_15_58_54" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="7edb8561-2c9b-4fa3-a479-c768c40804b4" testId="f1b42188-9708-1593-5d4e-3f21919c8203" testName="Rooster.Test.EventTest.FailSetEndTime" computerName="mansoor" duration="00:00:00.0028060" startTime="2021-05-19T15:58:54.7644849-04:00" endTime="2021-05-19T15:58:54.7644851-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7edb8561-2c9b-4fa3-a479-c768c40804b4" />
+    <UnitTestResult executionId="e4f80582-6c3b-40d2-9bdd-75691e4ded1b" testId="050bf850-4741-1776-76d8-39064999e084" testName="Rooster.Test.UserTest.UserConstructor" computerName="mansoor" duration="00:00:00.0001892" startTime="2021-05-19T15:58:54.7654603-04:00" endTime="2021-05-19T15:58:54.7654605-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e4f80582-6c3b-40d2-9bdd-75691e4ded1b" />
+    <UnitTestResult executionId="2ed3ab90-6e59-488b-b20e-7904ca6134c5" testId="9ad9caf1-dd30-9010-281b-59aebd352e3f" testName="Rooster.Test.UserTest.DuplicateEvents" computerName="mansoor" duration="00:00:00.0028034" startTime="2021-05-19T15:58:54.7618709-04:00" endTime="2021-05-19T15:58:54.7619235-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ed3ab90-6e59-488b-b20e-7904ca6134c5" />
+    <UnitTestResult executionId="3fd12db0-434b-4814-862e-3035bfd52eb8" testId="ee60ad02-e61a-aa09-c248-0cb6fb564913" testName="Rooster.Test.EventTest.EventCreation" computerName="mansoor" duration="00:00:00.0001856" startTime="2021-05-19T15:58:54.7652180-04:00" endTime="2021-05-19T15:58:54.7652182-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fd12db0-434b-4814-862e-3035bfd52eb8" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Rooster.Test.EventTest.FailSetEndTime" storage="/home/mfaqiri/revature/rooster/rooster.test/bin/debug/net5.0/rooster.test.dll" id="f1b42188-9708-1593-5d4e-3f21919c8203">
+      <Execution id="7edb8561-2c9b-4fa3-a479-c768c40804b4" />
+      <TestMethod codeBase="/home/mfaqiri/revature/rooster/Rooster.Test/bin/Debug/net5.0/Rooster.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Rooster.Test.EventTest" name="FailSetEndTime" />
+    </UnitTest>
+    <UnitTest name="Rooster.Test.UserTest.DuplicateEvents" storage="/home/mfaqiri/revature/rooster/rooster.test/bin/debug/net5.0/rooster.test.dll" id="9ad9caf1-dd30-9010-281b-59aebd352e3f">
+      <Execution id="2ed3ab90-6e59-488b-b20e-7904ca6134c5" />
+      <TestMethod codeBase="/home/mfaqiri/revature/rooster/Rooster.Test/bin/Debug/net5.0/Rooster.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Rooster.Test.UserTest" name="DuplicateEvents" />
+    </UnitTest>
+    <UnitTest name="Rooster.Test.UserTest.UserConstructor" storage="/home/mfaqiri/revature/rooster/rooster.test/bin/debug/net5.0/rooster.test.dll" id="050bf850-4741-1776-76d8-39064999e084">
+      <Execution id="e4f80582-6c3b-40d2-9bdd-75691e4ded1b" />
+      <TestMethod codeBase="/home/mfaqiri/revature/rooster/Rooster.Test/bin/Debug/net5.0/Rooster.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Rooster.Test.UserTest" name="UserConstructor" />
+    </UnitTest>
+    <UnitTest name="Rooster.Test.EventTest.EventCreation" storage="/home/mfaqiri/revature/rooster/rooster.test/bin/debug/net5.0/rooster.test.dll" id="ee60ad02-e61a-aa09-c248-0cb6fb564913">
+      <Execution id="3fd12db0-434b-4814-862e-3035bfd52eb8" />
+      <TestMethod codeBase="/home/mfaqiri/revature/rooster/Rooster.Test/bin/Debug/net5.0/Rooster.Test.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Rooster.Test.EventTest" name="EventCreation" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="f1b42188-9708-1593-5d4e-3f21919c8203" executionId="7edb8561-2c9b-4fa3-a479-c768c40804b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="050bf850-4741-1776-76d8-39064999e084" executionId="e4f80582-6c3b-40d2-9bdd-75691e4ded1b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9ad9caf1-dd30-9010-281b-59aebd352e3f" executionId="2ed3ab90-6e59-488b-b20e-7904ca6134c5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ee60ad02-e61a-aa09-c248-0cb6fb564913" executionId="3fd12db0-434b-4814-862e-3035bfd52eb8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="4" executed="4" passed="4" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.3+1b45f5407b (64-bit .NET 5.0.6)
+[xUnit.net 00:00:00.27]   Discovering: Rooster.Test
+[xUnit.net 00:00:00.30]   Discovered:  Rooster.Test
+[xUnit.net 00:00:00.30]   Starting:    Rooster.Test
+[xUnit.net 00:00:00.36]   Finished:    Rooster.Test
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
