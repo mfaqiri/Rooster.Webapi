@@ -5,11 +5,13 @@ namespace Rooster.Domain.Models
 {
   public class Event : AModel
   {
-    public DateTime EventStart {get; private set;}
-    public DateTime EventEnd {get; private set;}
-    public TimeSpan Duration {get; private set;}
-    public User user{get; private set;}
-    public string Descr{get;set;}
+    public string Name { get; set; }
+    public DateTime EventStart { get; private set; }
+    public DateTime EventEnd { get; private set; }
+    public TimeSpan Duration { get; private set; }
+    public bool Completion { get; private set; }
+    public int userId { get; set; }
+    public string Descr { get; set; }
 
     public Event(DateTime eventStart, string descr = null)
     {
@@ -18,14 +20,9 @@ namespace Rooster.Domain.Models
       Descr = descr;
     }
 
-    public void setUser(User inUser)
-    {
-        user = inUser;
-    }
-
     public bool SetEnd(DateTime eventEnd)
     {
-      if(eventEnd < EventStart)
+      if (eventEnd < EventStart)
       {
         return false;
       }
@@ -33,6 +30,9 @@ namespace Rooster.Domain.Models
       Duration = eventEnd - EventStart;
       return true;
     }
-
+    public override string ToString()
+    {
+      return $"{Name}";
+    }
   }
 }

@@ -8,7 +8,7 @@ namespace Rooster.Domain.Models
   {
     public string Email { get; set; }
     public string Password { get; set; }
-    public List<Event> schedule {get;}
+    public List<Event> schedule { get; }
 
     public User(string email, string password)
     {
@@ -20,16 +20,16 @@ namespace Rooster.Domain.Models
     public bool addEvent(Event newEvent)
     {
 
-       if(schedule.Contains(newEvent))
-         return false;
+      if (schedule.Contains(newEvent))
+        return false;
 
-      foreach(Event parse in schedule)
+      foreach (Event parse in schedule)
       {
-        if(newEvent.EventStart > parse.EventStart || 
+        if (newEvent.EventStart > parse.EventStart ||
             newEvent.EventStart < parse.EventEnd)
           return false;
       }
-
+      newEvent.userId = EntityId;
       schedule.Add(newEvent);
 
       return true;
