@@ -1,6 +1,5 @@
 using Rooster.Domain.Abstracts;
 using System.Collections.Generic;
-using Rooster.Domain.Models;
 
 namespace Rooster.Domain.Models
 {
@@ -8,29 +7,34 @@ namespace Rooster.Domain.Models
   {
     public string Email { get; set; }
     public string Password { get; set; }
-    public List<Event> schedule {get;}
+    public List<Errand> schedule {get;}
 
-    public User(string email, string password)
+    public User(string email, string password = null)
     {
       Email = email;
       Password = password;
-      schedule = new List<Event>();
+      schedule = new List<Errand>();
     }
 
-    public bool addEvent(Event newEvent)
+    public void addPassword(string password)
+    {
+      Password = password;
+    }
+
+    public bool addErrand(Errand newErrand)
     {
 
-       if(schedule.Contains(newEvent))
+       if(schedule.Contains(newErrand))
          return false;
 
-      foreach(Event parse in schedule)
+      foreach(Errand parse in schedule)
       {
-        if(newEvent.EventStart > parse.EventStart || 
-            newEvent.EventStart < parse.EventEnd)
+        if(newErrand.ErrandStart > parse.ErrandStart || 
+            newErrand.ErrandStart < parse.ErrandEnd)
           return false;
       }
 
-      schedule.Add(newEvent);
+      schedule.Add(newErrand);
 
       return true;
     }

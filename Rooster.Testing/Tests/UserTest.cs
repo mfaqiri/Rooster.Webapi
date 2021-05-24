@@ -18,10 +18,10 @@ namespace Rooster.Test
         [Fact]
         public void DuplicateEvents()
         {
-            var Event = new Event(DateTime.Now);
+            var errand = new Errand(DateTime.Now);
             var sut = new User("email", "password");
-            sut.addEvent(Event);
-            Assert.False(sut.addEvent(Event));
+            sut.addErrand(errand);
+            Assert.False(sut.addErrand(errand));
         }
 
         

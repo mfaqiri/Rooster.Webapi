@@ -3,18 +3,18 @@ using System;
 
 namespace Rooster.Domain.Models
 {
-  public class Event : AModel
+  public class Errand : AModel
   {
-    public DateTime EventStart {get; private set;}
-    public DateTime EventEnd {get; private set;}
+    public DateTime ErrandStart {get; private set;}
+    public DateTime ErrandEnd {get; private set;}
     public TimeSpan Duration {get; private set;}
     public User user{get; private set;}
     public string Descr{get;set;}
 
-    public Event(DateTime eventStart, string descr = null)
+    public Errand(DateTime errandStart, string descr = null)
     {
 
-      EventStart = eventStart;
+      ErrandStart = errandStart;
       Descr = descr;
     }
 
@@ -23,14 +23,14 @@ namespace Rooster.Domain.Models
         user = inUser;
     }
 
-    public bool SetEnd(DateTime eventEnd)
+    public bool SetEnd(DateTime errandEnd)
     {
-      if(eventEnd < EventStart)
+      if(errandEnd < ErrandStart)
       {
         return false;
       }
-      EventEnd = eventEnd;
-      Duration = eventEnd - EventStart;
+      ErrandEnd = errandEnd;
+      Duration = errandEnd - ErrandStart;
       return true;
     }
 
