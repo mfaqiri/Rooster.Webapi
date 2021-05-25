@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rooster.Storing\Roosters.Storing.csproj" />
+    <ProjectReference Include="..\Rooster.Domain\Rooster.Domain.csproj" />
   </ItemGroup>
 
 </Project>
