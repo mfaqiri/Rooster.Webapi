@@ -36,7 +36,7 @@ namespace Rooster.Client
             });
             services.AddDbContext<RoosterContext>(options =>
             {
-                options.UseSqlServer(Configuration["mssql"]);
+                options.UseNpgsql(Configuration.GetConnectionString("pgsql"));
             });
             services.AddScoped<UnitOfWork>();
         }
