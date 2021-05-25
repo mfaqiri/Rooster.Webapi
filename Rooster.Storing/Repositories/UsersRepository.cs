@@ -11,7 +11,7 @@ namespace Rooster.Storing.Repositories
   {
     private readonly RoosterContext _context;
 
-    public UserRepository(RoosterContext context)
+    public UsersRepository(RoosterContext context)
     {
       _context = context;
     }

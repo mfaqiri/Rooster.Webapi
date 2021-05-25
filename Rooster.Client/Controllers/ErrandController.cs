@@ -12,7 +12,7 @@ namespace Rooster.Client.Controllers
     public class ErrandController : ControllerBase
     {
         [HttpGet]
-        public Result Get()
+        public void Get()
         {
             
         }
