@@ -40,5 +40,18 @@ jobs:
       - run: docker image push mfaqiri/rooster-webapi
       - run: docker logout
 
+  deploy:
+    needs:
+      - docker
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      -uses: azure/webapp-deploy@v2
+       with:
+          app-name: rooster-webapi-app
+          images: mfaqiri/rooster-webapi
+
 name: ci-pipeline
 on: push
