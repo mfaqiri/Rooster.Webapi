@@ -6,15 +6,15 @@ namespace Rooster.Storing
   {
     private readonly RoosterContext _context;
 
-    public ErrandRepository Errand { get; }
-    public UserRepository User { get; }
+    public ErrandsRepository Errands { get; }
+    public UsersRepository Users { get; }
     
     public UnitOfWork(RoosterContext context)
     {
       _context = context;
 
-      Errand = new ErrandRepository(_context);
-      User = new UserRepository(_context);
+      Errands = new ErrandsRepository(_context);
+      Users = new UsersRepository(_context);
     }
 
     public void Save()

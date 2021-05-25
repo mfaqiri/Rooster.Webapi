@@ -7,7 +7,7 @@ using Rooster.Domain.Models;
 
 namespace Rooster.Storing.Repositories
 {
-  public class UserRepository : IRepository<User>
+  public class UsersRepository : IRepository<User>
   {
     private readonly RoosterContext _context;
 
@@ -23,7 +23,7 @@ namespace Rooster.Storing.Repositories
 
     public bool Insert(User entry)
     {
-      var result = _context.User.Add(entry);
+      var result = _context.Users.Add(entry);
       if (result != null)
       {
         return true;
@@ -33,7 +33,7 @@ namespace Rooster.Storing.Repositories
 
     public IEnumerable<User> Select(Func<User, bool> filter)
     {
-      return _context.User.Where(filter);
+      return _context.Users.Where(filter);
     }
 
     public User Update()

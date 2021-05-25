@@ -7,11 +7,11 @@ using Rooster.Domain.Models;
 
 namespace Rooster.Storing.Repositories
 {
-  public class ErrandRepository : IRepository<Errand>
+  public class ErrandsRepository : IRepository<Errand>
   {
     private readonly RoosterContext _context;
 
-    public ErrandRepository(RoosterContext context)
+    public ErrandsRepository(RoosterContext context)
     {
       _context = context;
     }
@@ -23,7 +23,7 @@ namespace Rooster.Storing.Repositories
 
     public bool Insert(Errand entry)
     {
-      var result = _context.Errand.Add(entry);
+      var result = _context.Errands.Add(entry);
       if (result != null)
       {
         return true;
@@ -33,7 +33,7 @@ namespace Rooster.Storing.Repositories
 
     public IEnumerable<Errand> Select(Func<Errand, bool> filter)
     {
-      return _context.Errand.Where(filter);
+      return _context.Errands.Where(filter);
     }
 
     public Errand Update()

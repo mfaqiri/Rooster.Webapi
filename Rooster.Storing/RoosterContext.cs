@@ -7,7 +7,7 @@ namespace Rooster.Storing
   public class RoosterContext : DbContext
   {
     public DbSet<User> Users {get;set;}
-    public DbSet<Errand> Events {get;set;}
+    public DbSet<Errand> Errands {get;set;}
 
     public RoosterContext(DbContextOptions options) : base(options){}
 
