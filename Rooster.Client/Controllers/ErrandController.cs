@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Rooster.Storing
+using Rooster.Storing;
 
 namespace Rooster.Client.Controllers
 {
@@ -16,13 +16,13 @@ namespace Rooster.Client.Controllers
 
         public ErrandController(UnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
-        public void Get()
+        public string Get()
         {
-            return 'Hello'
+            return "hello";
         }
     }
 }
