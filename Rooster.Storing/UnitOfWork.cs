@@ -13,7 +13,7 @@ namespace Rooster.Storing
     {
       _context = context;
 
-      Errand = new CrustsRepository(_context);
+      Errand = new ErrandRepository(_context);
       User = new UserRepository(_context);
     }
 
