@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Rooster.Storing;
+using System.Web.Http.Cors;
 
 namespace Rooster.Client.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ErrandController : ControllerBase
     {
         private UnitOfWork _unitOfWork { get; set; }

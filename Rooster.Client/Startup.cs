@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
+
 namespace Rooster.Client
 {
     public class Startup
@@ -39,6 +40,15 @@ namespace Rooster.Client
                 options.UseNpgsql(Configuration.GetConnectionString("pgsql"));
             });
             services.AddScoped<UnitOfWork>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("public", config =>
+                {
+                config.AllowAnyHeader();
+                config.AllowAnyMethod();
+                config.AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +64,7 @@ namespace Rooster.Client
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
