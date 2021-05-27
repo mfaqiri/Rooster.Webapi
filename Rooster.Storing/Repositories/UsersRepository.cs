@@ -46,9 +46,14 @@ namespace Rooster.Storing.Repositories
       return users.Where(filter);
     }
 
-    public User Update()
+    public User Update(User existing, User entry)
     {
-      throw new System.NotImplementedException();
+    
+      Delete(existing);
+      if(Insert(entry))
+        return entry;
+      
+      return null;
     }
   }
 }

@@ -47,9 +47,13 @@ namespace Rooster.Storing.Repositories
       return errands.Where(filter);
     }
 
-    public Errand Update()
+    public Errand Update(Errand existing, Errand entry)
     {
-      throw new System.NotImplementedException();
+      Delete(existing);
+      if(Insert(entry))
+        return entry;
+      
+      return null;
     }
   }
 }
