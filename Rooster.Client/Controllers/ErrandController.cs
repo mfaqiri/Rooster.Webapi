@@ -11,7 +11,7 @@ using Rooster.Storing;
 namespace Rooster.Client.Controllers
 {
   [ApiController]
-  [Route("[controller]/{userId}")]
+  [Route("[controller]/{userEmail}")]
   public class ErrandController : ControllerBase
   {
     private UnitOfWork _unitOfWork { get; set; }
@@ -29,9 +29,9 @@ namespace Rooster.Client.Controllers
 
     [HttpGet]
     [EnableCors("MVC")]
-    public string Get(int userId)
+    public string Get(string userEmail)
     {
-      var schedule = _unitOfWork.Users.Select(u => u.EntityId == userId).First().schedule.ToList();
+      var schedule = _unitOfWork.Users.Select(u => u.Email == userEmail).First().schedule.ToList();
       foreach (var errand in schedule)
       {
         errand.SetUser(null);
@@ -41,11 +41,11 @@ namespace Rooster.Client.Controllers
 
     [HttpPost]
     [EnableCors("MVC")]
-    public ActionResult Add(Errand errand, int userId)
+    public ActionResult Add(Errand errand, string userEmail)
     {
       if (_user == null)
       {
-        _user = _unitOfWork.Users.Select(u => u.EntityId == userId).First();
+        _user = _unitOfWork.Users.Select(u => u.Email == userEmail).First();
       }
       if (errand.Title == null || errand.ErrandStart == null)
       {
