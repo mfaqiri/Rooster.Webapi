@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Rooster.Domain.Models;
 using Rooster.Storing;
@@ -16,10 +17,9 @@ namespace Rooster.Client.Controllers
     private UnitOfWork _unitOfWork { get; set; }
     private User _user { get; set; }
 
-    public ErrandController(UnitOfWork unitOfWork, int userId)
+    public ErrandController(UnitOfWork unitOfWork)
     {
       _unitOfWork = unitOfWork;
-      _user = _unitOfWork.Users.Select(u => u.EntityId == userId).First();
     }
     JsonSerializerOptions options = new()
     {
@@ -28,15 +28,21 @@ namespace Rooster.Client.Controllers
     };
 
     [HttpGet]
+    [EnableCors("MVC")]
     public string Get(int userId)
     {
-      var errands = _unitOfWork.Errands.Select(e => e.User.EntityId == userId).ToList();
-      return JsonSerializer.Serialize(errands, options);
+      var schedule = _unitOfWork.Users.Select(u => u.EntityId == userId).First().schedule.ToList();
+      return JsonSerializer.Serialize(schedule, options);
     }
 
     [HttpPost]
-    public ActionResult Add(Errand errand)
+    [EnableCors("MVC")]
+    public ActionResult Add(Errand errand, int userId)
     {
+      if (_user == null)
+      {
+        _user = _unitOfWork.Users.Select(u => u.EntityId == userId).First();
+      }
       if (errand.Title == null || errand.ErrandStart == null)
       {
         return BadRequest();

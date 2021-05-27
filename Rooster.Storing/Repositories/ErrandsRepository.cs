@@ -20,11 +20,11 @@ namespace Rooster.Storing.Repositories
     public bool Delete(Errand entry)
     {
       //throw new System.NotImplementedException();
-      if(_context.Errands.Contains(entry))
+      if (_context.Errands.Contains(entry))
       {
         _context.Errands.Remove(entry);
 
-        if(!_context.Errands.Contains(entry))
+        if (!_context.Errands.Contains(entry))
           return true;
       }
       return false;

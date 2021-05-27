@@ -37,9 +37,17 @@ namespace Rooster.Client
       services.AddDbContext<RoosterContext>(options =>
       {
         options.UseNpgsql(Configuration.GetConnectionString("pgsql"));
-        options.EnableSensitiveDataLogging();
+
       });
       services.AddScoped<UnitOfWork>();
+      services.AddCors(options =>
+        {
+          options.AddPolicy("MVC",
+              builder =>
+              {
+                builder.WithOrigins("https://rooster-mvc-app.azurewebsites.net");
+              });
+        });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +63,8 @@ namespace Rooster.Client
       app.UseHttpsRedirection();
 
       app.UseRouting();
+
+      app.UseCors();
 
       app.UseAuthorization();
 
