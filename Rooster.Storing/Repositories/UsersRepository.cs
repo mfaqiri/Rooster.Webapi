@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Rooster.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Rooster.Domain.Abstracts;
+using Rooster.Domain.Interfaces;
 using Rooster.Domain.Models;
 
 namespace Rooster.Storing.Repositories
@@ -33,7 +34,9 @@ namespace Rooster.Storing.Repositories
 
     public IEnumerable<User> Select(Func<User, bool> filter)
     {
-      return _context.Users.Where(filter);
+      var users = _context.Users
+        .Include(u => u.schedule);
+      return users.Where(filter);
     }
 
     public User Update()

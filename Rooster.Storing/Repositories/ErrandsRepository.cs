@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Rooster.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Rooster.Domain.Abstracts;
+using Rooster.Domain.Interfaces;
 using Rooster.Domain.Models;
 
 namespace Rooster.Storing.Repositories
@@ -33,7 +34,9 @@ namespace Rooster.Storing.Repositories
 
     public IEnumerable<Errand> Select(Func<Errand, bool> filter)
     {
-      return _context.Errands.Where(filter);
+      var errands = _context.Errands
+        .Include(e => e.User);
+      return errands.Where(filter);
     }
 
     public Errand Update()
