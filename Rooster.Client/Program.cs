@@ -22,5 +22,8 @@ namespace Rooster.Client
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
+       
     }
 }

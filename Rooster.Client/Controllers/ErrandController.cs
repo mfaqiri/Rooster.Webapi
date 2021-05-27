@@ -11,7 +11,7 @@ namespace Rooster.Client.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "rooster-mvc-app.azurewebsites.net", headers: "*", methods: "*")]
     public class ErrandController : ControllerBase
     {
         private UnitOfWork _unitOfWork { get; set; }
