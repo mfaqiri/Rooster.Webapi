@@ -14,10 +14,12 @@ namespace Rooster.Client.Controllers
   public class ErrandController : ControllerBase
   {
     private UnitOfWork _unitOfWork { get; set; }
+    private User _user { get; set; }
 
-    public ErrandController(UnitOfWork unitOfWork)
+    public ErrandController(UnitOfWork unitOfWork, int userId)
     {
       _unitOfWork = unitOfWork;
+      _user = _unitOfWork.Users.Select(u => u.EntityId == userId).First();
     }
     JsonSerializerOptions options = new()
     {
@@ -30,6 +32,19 @@ namespace Rooster.Client.Controllers
     {
       var errands = _unitOfWork.Errands.Select(e => e.User.EntityId == userId).ToList();
       return JsonSerializer.Serialize(errands, options);
+    }
+
+    [HttpPost]
+    public ActionResult Add(Errand errand)
+    {
+      if (errand.Title == null || errand.ErrandStart == null)
+      {
+        return BadRequest();
+      }
+      errand.SetUser(_user);
+      _unitOfWork.Errands.Insert(errand);
+      _unitOfWork.Save();
+      return Ok();
     }
   }
 }
