@@ -17,9 +17,17 @@ namespace Rooster.Storing.Repositories
       _context = context;
     }
 
-    public bool Delete()
+    public bool Delete(Errand entry)
     {
-      throw new System.NotImplementedException();
+      //throw new System.NotImplementedException();
+      if(_context.Errands.Contains(entry))
+      {
+        _context.Errands.Remove(entry);
+
+        if(!_context.Errands.Contains(entry))
+          return true;
+      }
+      return false;
     }
 
     public bool Insert(Errand entry)
