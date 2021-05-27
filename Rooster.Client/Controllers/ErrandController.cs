@@ -32,6 +32,10 @@ namespace Rooster.Client.Controllers
     public string Get(int userId)
     {
       var schedule = _unitOfWork.Users.Select(u => u.EntityId == userId).First().schedule.ToList();
+      foreach (var errand in schedule)
+      {
+        errand.SetUser(null);
+      }
       return JsonSerializer.Serialize(schedule, options);
     }
 

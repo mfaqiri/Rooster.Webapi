@@ -42,9 +42,7 @@ namespace Rooster.Storing.Repositories
 
     public IEnumerable<Errand> Select(Func<Errand, bool> filter)
     {
-      var errands = _context.Errands
-        .Include(e => e.User);
-      return errands.Where(filter);
+      return _context.Errands.Where(filter);
     }
 
     public Errand Update()
