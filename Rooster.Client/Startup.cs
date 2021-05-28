@@ -63,7 +63,7 @@ namespace Rooster.Client
 
       app.UseRouting();
 
-      app.UseCors();
+      app.UseCors("MVC");
 
       app.UseAuthorization();
 
