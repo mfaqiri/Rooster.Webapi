@@ -41,7 +41,7 @@ namespace Rooster.Client
       services.AddScoped<UnitOfWork>();
       services.AddCors(options =>
         {
-          options.AddPolicy("MVC",
+          options.AddPolicy(name: "MVC",
               builder =>
               {
                 builder.WithOrigins("https://rooster-mvc-app.azurewebsites.net/").AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
@@ -63,13 +63,13 @@ namespace Rooster.Client
 
       app.UseRouting();
 
-      app.UseCors("MVC");
+      app.UseCors();
 
       app.UseAuthorization();
 
       app.UseEndpoints(endpoints =>
       {
-        endpoints.MapControllers();
+        endpoints.MapControllers().RequireCors("MVC"); ;
       });
     }
   }
