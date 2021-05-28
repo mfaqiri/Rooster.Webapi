@@ -32,7 +32,7 @@ namespace Rooster.Client.Controllers
       }
       _unitOfWork.Users.Insert(User);
       _unitOfWork.Save();
-      return Ok();
+      return Ok("User has been created");
     }
   }
 }
