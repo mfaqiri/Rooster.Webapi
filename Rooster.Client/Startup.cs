@@ -44,7 +44,7 @@ namespace Rooster.Client
           options.AddPolicy("MVC",
               builder =>
               {
-                builder.WithOrigins("https://rooster-mvc-app.azurewebsites.net/");
+                builder.WithOrigins("https://rooster-mvc-app.azurewebsites.net/").AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
               });
         });
     }
